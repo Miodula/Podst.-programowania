@@ -1,4 +1,7 @@
+
 import datetime
+from .utils import pesel2str
+
 def get_birthday_from_pesel(pesel: int) -> datetime.datetime:
     pesel = pesel2str(pesel)
     rok = int(pesel[0:2])
@@ -14,11 +17,7 @@ def get_birthday_from_pesel(pesel: int) -> datetime.datetime:
 
     return datetime.datetime(rok, miesiac, dzien)
 
-def pesel2str(pesel: int) -> str:
-    ret = str(pesel)
-    while len(ret) != 11:
-        ret = "0" + ret 
-    return ret 
+
 
 
 def get_gender_form_pesel(pesel: int) -> str:
@@ -29,9 +28,10 @@ def get_gender_form_pesel(pesel: int) -> str:
         plec = str("M")
     return plec
 
-# def validate_pesel(pesel: int) -> bool:
+def validate_pesel(pesel: int) -> bool:
+    return True
 #     check = (([0][4][8])*1)+(([1][5][9])*3)+(([2][6])*7)+(([3][7])*9)
 #     if len(check) == 2:
 
-print(get_birthday_from_pesel())
-print(get_gender_form_pesel())
+print(get_birthday_from_pesel(4270507614))
+print(get_gender_form_pesel(4270507614))
